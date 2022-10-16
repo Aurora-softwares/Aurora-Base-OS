@@ -1,1 +1,1 @@
-# COsmos-Based-Bootloader
+# Aurora Basic Operating System Project
