@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Boot": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\RSmit\\OneDrive\\Github\\Aurora-softwares\\Aurora-Base-OS\\",
+      "hotReloadEnabled": false
+    }
+  }
+}

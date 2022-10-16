@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Cosmos.Common" Version="0.1.0-localbuild20221015101242" />
+    <PackageReference Include="Cosmos.Core" Version="0.1.0-localbuild20221015101242" />
+    <PackageReference Include="Cosmos.HAL2" Version="0.1.0-localbuild20221015101242" />
+    <PackageReference Include="Cosmos.System2" Version="0.1.0-localbuild20221015101242" />
+  </ItemGroup>
+
+</Project>
