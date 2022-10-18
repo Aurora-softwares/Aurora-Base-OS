@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boot", "Aurora-Base-OS\Boot.csproj", "{8E049C27-0C40-495F-BFE8-EE8AEEEFB4FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boot", "Boot\Boot.csproj", "{8E049C27-0C40-495F-BFE8-EE8AEEEFB4FA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OS", "OS\OS.csproj", "{BA9DCC63-778A-47C8-A966-70B13D84DD7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface", "Interface\Interface.csproj", "{BA9DCC63-778A-47C8-A966-70B13D84DD7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

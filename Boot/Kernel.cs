@@ -8,7 +8,7 @@ using Console = System.Console;
 using System.Collections.Generic;
 using Cosmos.System;
 
-namespace Aurora_Base_OS {
+namespace Boot {
 	public class Kernel : Sys.Kernel {
 		public static Canvas Canvas;
 		public class Screen {
@@ -114,33 +114,45 @@ namespace Aurora_Base_OS {
             };
         }
 		private static int Subtractable = 0;
-		public static bool BootToGUI = false;
+		public static bool EnableUI = false;
+		string[] ErrStrings = { }; 
 
         protected override void BeforeRun() {
-			GetScreenInfo();
-			// To calculate screen PPI we need the Width/Heigth of the screen in inches and the Width/Height of the screen in pixels (X/Y Divided by Width/Height)
-			if (Screen.PPI == null && ((Screen.W != null && Screen.X != null) || (Screen.H != null && Screen.Y != null))) CalculateScreenPPI();
-			// To calculate the screen size we need the screen size in pixels and the screen PPI (X/Y divided by PPI)
-			if (Screen.PPI != null &&  (Screen.W != null || Screen.H != null) && (Screen.X != null && Screen.Y != null) ) CalculateScreenSize();
-			// Calculate how many cells will be on the screen
-			CalculateCells();
+			if(EnableUI) {
+				try {
+					GUI.Kernel.BeforeRun();
+				} catch (Exception e) {
+					ErrStr[ErrStr.Length] = e.Message;
 
-			Canvas = FullScreenCanvas.GetFullScreenCanvas(new Mode(Screen.X, Screen.Y, Colors.Depth));
-			Canvas.Clear(Colors.Background);
-            Write("Welcome to the Aurora Basic Operation System Project.", Screen.Font, Colors.Primary, true);
-			WriteLine("Successfully booted.", Screen.Font, Colors.Success, true);
-            WriteLine("ABOS> ", Screen.Font, Colors.Foreground, true);
-        }
+				}
+			}
+			if(!EnableUI) {
+				GetScreenInfo();
+				// To calculate screen PPI we need the Width/Heigth of the screen in inches and the Width/Height of the screen in pixels (X/Y Divided by Width/Height)
+				if (Screen.PPI == null && ((Screen.W != null && Screen.X != null) || (Screen.H != null && Screen.Y != null))) CalculateScreenPPI();
+				// To calculate the screen size we need the screen size in pixels and the screen PPI (X/Y divided by PPI)
+				if (Screen.PPI != null &&  (Screen.W != null || Screen.H != null) && (Screen.X != null && Screen.Y != null) ) CalculateScreenSize();
+				// Calculate how many cells will be on the screen
+				CalculateCells();
+
+				Canvas = FullScreenCanvas.GetFullScreenCanvas(new Mode(Screen.X, Screen.Y, Colors.Depth));
+				Canvas.Clear(Colors.Background);
+				Write("Welcome to the Aurora Basic Operation System Project.", Screen.Font, Colors.Primary, true);
+				WriteLine("Successfully booted.", Screen.Font, Colors.Success, true);
+				WriteLine("ABOS> ", Screen.Font, Colors.Foreground, true);
+			}
+		}
 
 		protected override void Run() {
-			if(BootToGUI) {
+			if(EnableUI) {
 				try {
-					OS.Kernel.Run();
+					GUI.Kernel.Run();
 				} catch (Exception e) {
-					mDebugger.Send("Exception occurred: " + e.Message);
-					Sys.Power.Shutdown();
+					ErrStr[ErrStr.Length] = e.Message
+					EnableUI = false;
 				}
-			} else {
+			} 
+			if(!EnableUI) {
 				try {
 					Canvas.Display();
 					var input = Console.ReadKey();

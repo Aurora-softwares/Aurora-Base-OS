@@ -1,8 +1,8 @@
 ﻿using System;
 using Sys = Cosmos.System;
 
-namespace OS {
-    public  class Kernel {
+namespace Interface {
+    public class Constructor {
         public static void Run() {
             
         }

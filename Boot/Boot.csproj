@@ -69,7 +69,7 @@
 		<EnableGDB>False</EnableGDB>
 		<StartCosmosGDB>False</StartCosmosGDB>
 		<VBEResolution>1024x768x32</VBEResolution>
-		<RootNamespace>Aurora_Base_OS</RootNamespace>
+		<RootNamespace>Boot</RootNamespace>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/Aurora-softwares/Aurora-Base-OS/</PackageProjectUrl>
 		<RepositoryType>git</RepositoryType>
@@ -88,6 +88,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\OS\OS.csproj" />
+	  <ProjectReference Include="..\Interface\Interface.csproj" />
 	</ItemGroup>
 </Project>
