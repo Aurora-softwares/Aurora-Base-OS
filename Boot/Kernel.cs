@@ -7,113 +7,12 @@ using Point = Cosmos.System.Graphics.Point;
 using Console = System.Console;
 using System.Collections.Generic;
 using Cosmos.System;
-using Boot.Systems;
+using Systems;
+using Variables
 
 namespace Boot {
 	public class Kernel : Sys.Kernel {
 		public static Canvas Canvas;
-		public class Screen {
-			public static int X;
-			public static int Y;
-			public static int W;
-			public static int H;
-			public static int PPI;
-			public static int ScaleFactor;
-			public static PCScreenFont Font = PCScreenFont.Default;
-		}
-		public class Colors {
-            public static ColorDepth Depth = ColorDepth.ColorDepth32;
-
-			//
-
-            public static Color Primary = Color.FromArgb(255, 251, 222, 130);
-
-			public static Color Background = Color.FromArgb(255, 051, 077, 092);
-			public static Color Foreground = Color.FromArgb(255, 243, 156, 015);
-			public static Color UserInput = Color.FromArgb(255, 138, 193, 200);
-
-			public static Color Warn = Color.FromArgb(255, 255, 154, 102);
-			public static Color Error = Color.FromArgb(255, 205, 51, 1);
-			public static Color Info = Color.FromArgb(255, 31, 99, 180);
-			public static Color Success = Color.FromArgb(255, 153, 204, 51);
-		}
-		public class Grid { 
-			public static int Columns;
-			public static int Rows;
-			public class Cell {
-				public static int Width;
-				public static int Height;
-			}
-		}
-		public class Cursor {
-			public static int MinX;
-			public class Pos{
-				public static int X = 1;
-				public static int Y = 1;
-			}
-		}
-		public class Keyboard {
-			public static ConsoleKey[] Letters = {
-				ConsoleKey.A, ConsoleKey.B, ConsoleKey.C, ConsoleKey.D, ConsoleKey.E, ConsoleKey.F,
-                ConsoleKey.G, ConsoleKey.H, ConsoleKey.I, ConsoleKey.J, ConsoleKey.K, ConsoleKey.L,
-                ConsoleKey.M, ConsoleKey.N, ConsoleKey.O, ConsoleKey.P, ConsoleKey.Q, ConsoleKey.R,
-                ConsoleKey.S, ConsoleKey.T, ConsoleKey.U, ConsoleKey.V, ConsoleKey.W, ConsoleKey.X,
-                ConsoleKey.Y, ConsoleKey.X
-            };
-			public static ConsoleKey[] Numbers = {
-				ConsoleKey.D1,
-				ConsoleKey.D2,
-				ConsoleKey.D3,
-				ConsoleKey.D4,
-				ConsoleKey.D5,
-				ConsoleKey.D6,
-				ConsoleKey.D7,
-				ConsoleKey.D8,
-				ConsoleKey.D9,
-				ConsoleKey.D0,
-				ConsoleKey.NumPad1,
-				ConsoleKey.NumPad2,
-				ConsoleKey.NumPad3,
-				ConsoleKey.NumPad4,
-				ConsoleKey.NumPad5,
-				ConsoleKey.NumPad6,
-				ConsoleKey.NumPad7,
-				ConsoleKey.NumPad8,
-				ConsoleKey.NumPad9,
-				ConsoleKey.NumPad0
-			};
-            public static ConsoleKey[] Symbols = {
-                ConsoleKey.Add,
-                ConsoleKey.Subtract,
-                ConsoleKey.Decimal,
-                ConsoleKey.Divide,
-                ConsoleKey.Multiply,
-                ConsoleKey.Spacebar,
-                ConsoleKey.OemComma,
-                ConsoleKey.OemMinus,
-                ConsoleKey.OemPeriod,
-                ConsoleKey.OemPlus
-
-            };
-            public static ConsoleKey[] Modifiers = {
-                ConsoleKey.Escape,
-                ConsoleKey.Delete,
-                ConsoleKey.Tab,
-                ConsoleKey.PageDown,
-                ConsoleKey.PageUp,
-                ConsoleKey.PrintScreen,
-                ConsoleKey.Home,
-                ConsoleKey.BrowserHome,
-                ConsoleKey.End,
-                ConsoleKey.UpArrow,
-                ConsoleKey.DownArrow,
-                ConsoleKey.RightArrow,
-                ConsoleKey.LeftArrow,
-                ConsoleKey.LeftWindows,
-                ConsoleKey.RightWindows
-
-            };
-        }
 		private static int Subtractable = 0;
 		public static bool EnableUI = false;
 		string[] ErrStrings = { }; 

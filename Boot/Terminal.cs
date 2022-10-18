@@ -8,7 +8,7 @@ using Console = System.Console;
 using System.Collections.Generic;
 using Cosmos.System;
 
-namespace Boot.Systems {
+namespace Systems {
 	public class Terminal {
         /// <summary>
         /// Writes a string from the current cursor position

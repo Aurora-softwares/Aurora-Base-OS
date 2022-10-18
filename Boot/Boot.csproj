@@ -90,4 +90,8 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\Interface\Interface.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Variables\Variables.csproj" />
+	</ItemGroup>
 </Project>
