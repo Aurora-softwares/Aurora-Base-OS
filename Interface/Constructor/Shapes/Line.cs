@@ -1,6 +1,7 @@
 using System.Drawing;
 using Variables;
 using Cosmos.System.Graphics;
+using Pen = Cosmos.System.Graphics.Pen;
 
 namespace Interface.Constructor.Shapes {
     public class Line {
